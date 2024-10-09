@@ -5,6 +5,22 @@ import ToolingIcon from './icons/IconTooling.vue'
 import EcosystemIcon from './icons/IconEcosystem.vue'
 import CommunityIcon from './icons/IconCommunity.vue'
 import SupportIcon from './icons/IconSupport.vue'
+import api from '../api/backend'
+import { onMounted, ref } from 'vue'
+
+const message = ref('')
+
+function callApi() {
+  api.hello().then((response) => {
+    console.log("Response", response);
+    message.value = response.data;
+  })
+}
+
+onMounted(() => {
+  console.log("Calling api")
+  callApi();
+})
 </script>
 
 <template>
@@ -23,7 +39,7 @@ import SupportIcon from './icons/IconSupport.vue'
     <template #icon>
       <ToolingIcon />
     </template>
-    <template #heading>Tooling</template>
+    <template #heading>{{ message }}</template>
 
     This project is served and bundled with
     <a href="https://vitejs.dev/guide/features.html" target="_blank" rel="noopener">Vite</a>. The
