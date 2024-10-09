@@ -1,5 +1,6 @@
 # node installation
 node/
+target/
 
 # Logs
 logs
