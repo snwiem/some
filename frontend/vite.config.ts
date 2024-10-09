@@ -16,5 +16,13 @@ export default defineConfig({
   build: {
     outDir: 'target/dist',
     assetsDir: 'static'
+  },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8080',
+        changeOrigin: true
+      }
+    }
   }
 })
