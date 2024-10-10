@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosApi = axios.create({
   baseURL: '/api',
@@ -7,7 +7,7 @@ const axiosApi = axios.create({
 });
 
 export default {
-  hello(): Promise<axios.AxiosResponse<string>> {
+  hello(): Promise<string> {
     return axiosApi.get(`/hello`)
   }
 }
